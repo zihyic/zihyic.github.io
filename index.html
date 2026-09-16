@@ -113,17 +113,15 @@ background:radial-gradient(circle at 35% 35%,var(--ochre),var(--terra));box-shad
 /* ---------- spotlight : gallery frame ---------- */
 .spot{background:var(--card);border:1.5px solid var(--ink);border-radius:24px;overflow:hidden;color:var(--ink2);
 box-shadow:inset 0 0 0 6px var(--card),inset 0 0 0 7px rgba(43,38,32,.25),0 30px 70px rgba(43,38,32,.16);
-display:grid;grid-template-columns:1fr 1.15fr;position:relative}
-@media(max-width:960px){.spot{grid-template-columns:1fr}}
-.spot-info{padding:52px 48px}
+display:block;position:relative}
+.spot-info{padding:52px 48px 44px}
 .spot-info h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;letter-spacing:-.015em;margin:16px 0 12px;color:var(--ink)}
 .spot-info p{color:var(--ink2);margin-bottom:24px}
 .spot-stats{display:flex;gap:30px;margin-bottom:26px;flex-wrap:wrap}
 .spot-stats .n{font-family:'Fraunces',Georgia,serif;font-size:1.7rem;font-weight:700;color:var(--ink)}
 .spot-stats .l{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
 .techrow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
-.spot-frame{padding:36px;background:linear-gradient(150deg,#f3ead9,#e9dcc0);display:flex;flex-direction:column;border-left:1px dashed rgba(43,38,32,.3)}
-@media(max-width:960px){.spot-frame{border-left:none;border-top:1px dashed rgba(43,38,32,.3)}}
+.spot-frame{padding:36px;background:linear-gradient(150deg,#f3ead9,#e9dcc0);border-top:1px dashed rgba(43,38,32,.3)}
 .browser{background:#2e2620;border:6px solid #2e2620;border-radius:10px;overflow:hidden;flex:1;display:flex;flex-direction:column;box-shadow:0 18px 44px rgba(43,38,32,.3)}
 .browser .chrome{display:flex;gap:7px;padding:10px 14px;background:#2e2620}
 .browser .chrome i{width:11px;height:11px;border-radius:50%;background:#5a4c3a}
@@ -131,6 +129,11 @@ display:grid;grid-template-columns:1fr 1.15fr;position:relative}
 .browser iframe{width:100%;height:1500px;border:0;background:#faf6ef;flex:none}
 @media(max-width:640px){.browser iframe{height:1200px}.spot-info{padding:36px 28px}}
 .spot-actions{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spot-cols{display:grid;grid-template-columns:1.35fr 1fr;gap:44px;align-items:start;margin-top:8px}
+@media(max-width:760px){.spot-cols{grid-template-columns:1fr}}
+.spot-side .spot-stats{flex-direction:column;gap:16px;margin-bottom:24px}
+.spot-side .spot-actions{flex-direction:column;align-items:stretch;margin-top:0}
+.spot-side .spot-actions .btn{text-align:center}
 /* ---------- project grid : gallery wall ---------- */
 .pgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:26px}
 .pcard{position:relative;background:var(--card);border:1.5px solid var(--ink);border-radius:var(--radius);overflow:hidden;
@@ -297,17 +300,24 @@ footer b{color:#faf6ef}
 <div class="spot-info">
 <span class="ptag ptag">Data Visualization</span>
 <h3>Police Shootings Analytics Dashboard</h3>
+<div class="spot-cols">
+<div class="spot-main">
 <p>Comprehensive Tableau dashboard analyzing 4,895 police-involved shooting incidents across the U.S. from 2015&ndash;2020. Rebuilt below as a fully interactive web edition.</p>
+<div class="techrow"><span class="ptag" style="margin:0">Tableau</span><span class="ptag" style="margin:0">Data Analysis</span><span class="ptag" style="margin:0">Geographic Mapping</span></div>
+</div>
+<div class="spot-side">
 <div class="spot-stats">
 <div><div class="n">4,895</div><div class="l">Incidents</div></div>
 <div><div class="n">51</div><div class="l">U.S. Jurisdictions</div></div>
 <div><div class="n">6</div><div class="l">Years of Data</div></div>
 </div>
-<div class="techrow"><span class="ptag" style="margin:0">Tableau</span><span class="ptag" style="margin:0">Data Analysis</span><span class="ptag" style="margin:0">Geographic Mapping</span></div>
 <div class="spot-actions">
 <a class="btn btn-primary" href="police-shootings-dashboard.html" target="_blank" rel="noopener">Open Full Dashboard &rarr;</a>
 <a class="btn btn-ghost" href="https://github.com/zihyic/police-shootings-dashboard" target="_blank" rel="noopener">View on GitHub</a>
-</div></div>
+</div>
+</div>
+</div>
+</div>
 <div class="spot-frame">
 <div class="browser"><div class="chrome"><i></i><i></i><i></i></div>
 <iframe id="dashFrame" src="police-shootings-dashboard.html" title="Police Shootings Analytics Dashboard" loading="lazy" scrolling="no"></iframe>
